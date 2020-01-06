@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "practicaladjustments:mortar_and_pestle",
+      "data": 32767
+    },
+    {
+      "item": "minecraft:reeds"
+    }
+  ],
+  "result": {
+    "item": "minecraft:sugar",
+    "count": 2
+  }
+}

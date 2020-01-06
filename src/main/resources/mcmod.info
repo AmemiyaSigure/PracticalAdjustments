@@ -1,14 +1,14 @@
 [
 {
-  "modid": "examplemod",
-  "name": "Example Mod",
-  "description": "Example placeholder mod.",
+  "modid": "practicaladjustments",
+  "name": "Practical Adjustments",
+  "description": "This is a mod with some little ideas.",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
-  "authorList": ["ExampleDude"],
-  "credits": "The Forge and FML guys, for making this example",
+  "authorList": ["AmemiyaSigure"],
+  "credits": "Thanks to the Gugugu Studio.",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []

@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SSS",
+    "DPD",
+    "SMS"
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:sugar"
+    },
+    "D": {
+      "item": "minecraft:dye",
+      "data": 10
+    },
+    "P": {
+      "item": "practicaladjustments:mortar_and_pestle",
+      "data": 32767
+    },
+    "M": {
+      "item": "minecraft:milk_bucket"
+    }
+  },
+  "result": {
+    "item": "minecraft:slime_ball",
+    "count": 2
+  }
+}

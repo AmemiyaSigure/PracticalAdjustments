@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "practicaladjustments:mortar_and_pestle",
+      "data": 32767
+    },
+    {
+      "item": "minecraft:potion",
+      "data": 0
+    },
+    {
+      "item": "minecraft:red_flower",
+      "data": 7
+    }
+  ],
+  "result": {
+    "item": "minecraft:dye",
+    "data": 9,
+    "count": 2
+  }
+}

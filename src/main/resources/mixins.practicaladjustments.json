@@ -1,0 +1,18 @@
+{
+  "refmap": "mixins.practicaladjustments.refmap.json",
+  "minVersion": "0.7.5",
+  "setSourceFile": true,
+  "required": true,
+  "package": "cx.rain.mc.forgemod.practicaladjustments.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "mixins": [
+    "MixinItemFood"
+  ],
+  "client": [
+  ],
+  "server": [
+  ]
+}
