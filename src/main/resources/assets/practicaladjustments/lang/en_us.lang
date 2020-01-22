@@ -4,3 +4,6 @@ itemGroup.practical_adjustments=Practical Adjustments
 # Items
 item.pestle.name=Pestle
 item.mortar_and_pestle.name=Mortar and Pestle
+
+# Blocks
+tile.de_curse_table.name=De-curse Table

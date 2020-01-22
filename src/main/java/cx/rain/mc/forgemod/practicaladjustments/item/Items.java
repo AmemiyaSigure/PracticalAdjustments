@@ -15,8 +15,8 @@ public class Items {
     public static Map<String, Item> ITEMS = new HashMap<>();
 
     static {
-        ITEMS.put("Pestle", new ItemPestle());
-        ITEMS.put("MortarAndPestle", new ItemMortarAndPestle());
+        ITEMS.put("pestle", new ItemPestle());
+        ITEMS.put("mortar_and_pestle", new ItemMortarAndPestle());
     }
 
     public Items(FMLPreInitializationEvent event) {
@@ -25,7 +25,7 @@ public class Items {
 
     private void register(FMLPreInitializationEvent event) {
         ITEMS.forEach((name, item) -> {
-            register(item);
+            register(item, name);
         });
 
         if (event.getSide() == Side.CLIENT) {
@@ -35,8 +35,9 @@ public class Items {
         }
     }
 
-    private void register(Item item) {
-        ForgeRegistries.ITEMS.register(item.setCreativeTab(Tabs.PRACTICAL_ADJUSTMENTS));
+    private void register(Item item, String name) {
+        item.setRegistryName(name).setUnlocalizedName(name).setCreativeTab(Tabs.PRACTICAL_ADJUSTMENTS);
+        ForgeRegistries.ITEMS.register(item);
     }
 
     private void registerModel(Item item) {

@@ -11,6 +11,6 @@ public class TabPracticalAdjustments extends CreativeTabs {
 
     @Override
     public ItemStack getTabIconItem() {
-        return new ItemStack(Items.ITEMS.get("MortarAndPestle"));
+        return new ItemStack(Items.ITEMS.get("mortar_and_pestle"));
     }
 }

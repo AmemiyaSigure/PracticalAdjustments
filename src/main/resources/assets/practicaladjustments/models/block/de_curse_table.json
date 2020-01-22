@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "practicaladjustments:blocks/de_curse_table"
+  }
+}
