@@ -5,11 +5,11 @@
   "description": "This is a mod with some little ideas.",
   "version": "${version}",
   "mcversion": "${mcversion}",
-  "url": "",
+  "url": "https://mc.rain.cx/",
   "updateUrl": "",
-  "authorList": ["AmemiyaSigure"],
+  "authorList": ["AmemiyaSigure", "DouYan"],
   "credits": "Thanks to the Gugugu Studio.",
-  "logoFile": "",
+  "logoFile": "logo.png",
   "screenshots": [],
   "dependencies": []
 }

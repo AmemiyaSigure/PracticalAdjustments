@@ -7,3 +7,6 @@ item.mortar_and_pestle.name=Mortar and Pestle
 
 # Blocks
 tile.de_curse_table.name=De-curse Table
+
+# Contianer
+container.de_curse_table.title=De-curse Table

@@ -1,5 +1,6 @@
 package cx.rain.mc.forgemod.practicaladjustments.block;
 
+import cx.rain.mc.forgemod.practicaladjustments.PracticalAdjustments;
 import cx.rain.mc.forgemod.practicaladjustments.creative.tab.Tabs;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -23,6 +24,7 @@ public class Blocks {
     }
 
     public Blocks(FMLPreInitializationEvent event) {
+        PracticalAdjustments.INSTANCE.getLogger().info("Registered blocks.");
         register(event);
     }
 

@@ -1,6 +1,12 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "practicaladjustments:blocks/de_curse_table"
+    "particle": "practicaladjustments:blocks/de_curse_table_side",
+    "up": "practicaladjustments:blocks/de_curse_table_up",
+    "down": "practicaladjustments:blocks/de_curse_table_down",
+    "north": "practicaladjustments:blocks/de_curse_table_side",
+    "east": "practicaladjustments:blocks/de_curse_table_side",
+    "south": "practicaladjustments:blocks/de_curse_table_side",
+    "west": "practicaladjustments:blocks/de_curse_table_side"
   }
 }

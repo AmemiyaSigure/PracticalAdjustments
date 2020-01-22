@@ -1,5 +1,6 @@
 package cx.rain.mc.forgemod.practicaladjustments.item;
 
+import cx.rain.mc.forgemod.practicaladjustments.PracticalAdjustments;
 import cx.rain.mc.forgemod.practicaladjustments.creative.tab.Tabs;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
@@ -20,6 +21,7 @@ public class Items {
     }
 
     public Items(FMLPreInitializationEvent event) {
+        PracticalAdjustments.INSTANCE.getLogger().info("Registered items.");
         register(event);
     }
 

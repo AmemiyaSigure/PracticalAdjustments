@@ -1,29 +1,38 @@
 package cx.rain.mc.forgemod.practicaladjustments.utility;
 
-import org.apache.commons.lang3.tuple.Triple;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.Container;
+import net.minecraft.client.gui.inventory.GuiContainer;
+import net.minecraft.util.math.BlockPos;
 
-public class GuiTriple extends Triple {
-    public GuiTriple(int id) {
+import java.lang.reflect.Constructor;
 
+public class GuiTriple {
+    private Class<? extends Container> c = null;
+    private Class<? extends GuiContainer> g = null;
+
+    public GuiTriple(Class<? extends Container> container, Class<? extends GuiContainer> guiContainer) {
+        c = container;
+        g = guiContainer;
     }
 
-    @Override
-    public Object getLeft() {
+    public Container getContainer(EntityPlayer player, BlockPos pos) {
+        try {
+            Constructor<?> constructor = c.getConstructor(EntityPlayer.class, BlockPos.class);
+            return (Container) constructor.newInstance(player, pos);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
         return null;
     }
 
-    @Override
-    public Object getMiddle() {
+    public GuiContainer getGuiContainer(EntityPlayer player, BlockPos pos) {
+        try {
+            Constructor<?> constructor = g.getConstructor(Container.class);
+            return (GuiContainer) constructor.newInstance(getContainer(player, pos));
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
         return null;
-    }
-
-    @Override
-    public Object getRight() {
-        return null;
-    }
-
-    @Override
-    public int compareTo(Object o) {
-        return 0;
     }
 }

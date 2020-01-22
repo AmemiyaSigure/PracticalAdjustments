@@ -7,3 +7,6 @@ item.mortar_and_pestle.name=研钵和研杵
 
 # Blocks
 tile.de_curse_table.name=祛咒台
+
+# Contianer
+container.de_curse_table.title=祛咒台

@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " R ",
+    "EQE",
+    "QQQ"
+  ],
+  "key": {
+    "R": {
+      "item": "minecraft:wool",
+      "data": 14
+    },
+    "E": {
+      "item": "minecraft:emerald"
+    },
+    "Q": {
+      "item": "minecraft:iron_block"
+    }
+  },
+  "result": {
+    "item": "practicaladjustments:de_curse_table"
+  }
+}

@@ -3,6 +3,7 @@ package cx.rain.mc.forgemod.practicaladjustments;
 import cx.rain.mc.forgemod.practicaladjustments.block.Blocks;
 import cx.rain.mc.forgemod.practicaladjustments.creative.tab.Tabs;
 import cx.rain.mc.forgemod.practicaladjustments.event.Events;
+import cx.rain.mc.forgemod.practicaladjustments.gui.Guis;
 import cx.rain.mc.forgemod.practicaladjustments.item.Items;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -28,6 +29,7 @@ public class PracticalAdjustments {
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
+        logger.info("Hello World! Here is PreInitialization.");
         new Tabs();
         new Items(event);
         new Blocks(event);
@@ -36,11 +38,12 @@ public class PracticalAdjustments {
     @EventHandler
     public void init(FMLInitializationEvent event) {
         new Events();
+        new Guis();
     }
 
     @EventHandler
     public void postInit(FMLPostInitializationEvent event) {
-
+        logger.info("Welcome to potato world!");
     }
 
     public Logger getLogger() {
