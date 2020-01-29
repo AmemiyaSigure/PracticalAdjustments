@@ -8,5 +8,8 @@ item.mortar_and_pestle.name=Mortar and Pestle
 # Blocks
 tile.de_curse_table.name=De-curse Table
 
+# Block lore
+tile.de_curse_table.lore=Remove the curse from items but keep good enchants.
+
 # Contianer
 container.de_curse_table.title=De-curse Table

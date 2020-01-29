@@ -8,5 +8,8 @@ item.mortar_and_pestle.name=研钵和研杵
 # Blocks
 tile.de_curse_table.name=祛咒台
 
+# Block lore
+tile.de_curse_table.lore=祛除物品上的诅咒但保留其他的附魔。
+
 # Contianer
 container.de_curse_table.title=祛咒台

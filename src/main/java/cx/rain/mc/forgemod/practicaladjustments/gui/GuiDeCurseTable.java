@@ -13,15 +13,20 @@ public class GuiDeCurseTable extends GuiContainer {
 
     public GuiDeCurseTable(Container inventorySlotsIn) {
         super(inventorySlotsIn);
-
         xSize = 176;
         ySize = 172;
     }
 
     @Override
+    public void drawScreen(int mouseX, int mouseY, float partialTicks) {
+        drawDefaultBackground();
+        super.drawScreen(mouseX, mouseY, partialTicks);
+        renderHoveredToolTip(mouseX, mouseY);
+    }
+
+    @Override
     protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
         GlStateManager.color(1.0F, 1.0F, 1.0F);
-
         mc.getTextureManager().bindTexture(texture);
         int offsetX = (this.width - this.xSize) / 2;
         int offsetY = (this.height - this.ySize) / 2;
@@ -31,7 +36,6 @@ public class GuiDeCurseTable extends GuiContainer {
     @Override
     protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
         super.drawGuiContainerForegroundLayer(mouseX, mouseY);
-
         drawTitle();
     }
 

@@ -6,9 +6,9 @@ import net.minecraft.item.ItemStack;
 public class ItemMortarAndPestle extends Item {
     public ItemMortarAndPestle() {
         super();
-        this.setMaxStackSize(1);
-        this.setMaxDamage(60);
-        this.setNoRepair();
+        setMaxStackSize(1);
+        setMaxDamage(60);
+        setNoRepair();
     }
 
     @Override

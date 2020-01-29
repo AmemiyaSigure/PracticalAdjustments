@@ -6,22 +6,26 @@ import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.resources.I18n;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.internal.FMLNetworkHandler;
 
+import javax.annotation.Nullable;
 import java.util.Arrays;
 import java.util.List;
 
 public class BlockDeCurseTable extends Block {
     public BlockDeCurseTable() {
         super(Material.IRON);
-        this.setSoundType(SoundType.STONE);
-        this.setHardness(3.0F);
-        this.setHarvestLevel("pickaxe", 2);
+        setSoundType(SoundType.STONE);
+        setHardness(3.0F);
+        setHarvestLevel("pickaxe", 2);
     }
 
     @Override
@@ -32,7 +36,12 @@ public class BlockDeCurseTable extends Block {
             FMLNetworkHandler.openGui(playerIn, PracticalAdjustments.INSTANCE, guis.indexOf("de_curse_table"), worldIn,
                     pos.getX(), pos.getY(), pos.getZ());
         }
-
         return true;
+    }
+
+    @Override
+    public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, ITooltipFlag advanced) {
+        super.addInformation(stack, player, tooltip, advanced);
+        tooltip.add(I18n.format("tile.de_curse_table.lore"));
     }
 }

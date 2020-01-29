@@ -6,8 +6,10 @@ import cx.rain.mc.forgemod.practicaladjustments.utility.GuiTriple;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.network.IGuiHandler;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.minecraftforge.fml.relauncher.Side;
 
 import javax.annotation.Nullable;
 import java.util.HashMap;
@@ -17,8 +19,13 @@ public class Guis implements IGuiHandler {
     public static final Map<String, GuiTriple> GUIS = new HashMap<>();
 
     static {
-        GUIS.put("de_curse_table",
-                new GuiTriple(ContainerDeCurseTable.class, GuiDeCurseTable.class));
+        if (FMLCommonHandler.instance().getSide() == Side.SERVER) {
+            GUIS.put("de_curse_table",
+                    new GuiTriple(ContainerDeCurseTable.class, null));
+        } else {
+            GUIS.put("de_curse_table",
+                    new GuiTriple(ContainerDeCurseTable.class, GuiDeCurseTable.class));
+        }
     }
 
     public Guis() {

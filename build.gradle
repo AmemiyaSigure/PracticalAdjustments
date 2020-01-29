@@ -1,7 +1,10 @@
 buildscript {
     repositories {
         jcenter()
-        maven { url = "http://files.minecraftforge.net/maven" }
+        maven {
+            name = "forge"
+            url = "http://files.minecraftforge.net/maven"
+        }
         maven {
             name = "mixin"
             url = "https://repo.spongepowered.org/maven"
@@ -71,7 +74,7 @@ dependencies {
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
 
-    provided('org.spongepowered:mixin:0.7.11-SNAPSHOT') {
+    provided ('org.spongepowered:mixin:0.7.11-SNAPSHOT') {
         exclude module: 'guava'
         exclude module: 'commons-io'
         exclude module: 'gson'
@@ -98,6 +101,10 @@ processResources {
 }
 
 jar {
+    from configurations.provided.asFileTree.files.collect {
+        zipTree(it)
+    }
+
     manifest {
         attributes(
                 "FMLCorePlugin": "cx.rain.mc.forgemod.practicaladjustments.coremod.PracticalAdjustmentsPlugin",
