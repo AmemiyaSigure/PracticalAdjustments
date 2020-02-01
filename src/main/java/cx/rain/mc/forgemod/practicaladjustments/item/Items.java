@@ -18,6 +18,7 @@ public class Items {
     static {
         ITEMS.put("pestle", new ItemPestle());
         ITEMS.put("mortar_and_pestle", new ItemMortarAndPestle());
+        ITEMS.put("read_will_die_book", new ItemReadWillDieBook());
     }
 
     public Items(FMLPreInitializationEvent event) {

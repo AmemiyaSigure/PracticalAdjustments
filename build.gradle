@@ -27,7 +27,7 @@ repositories {
     }
 }
 
-version = "1.12.2-1.0.0"
+version = "1.12.2-1.0.1"
 group = "cx.rain.mc.forgemod.practicaladjustments" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "practicaladjustments"
 

@@ -4,6 +4,11 @@ itemGroup.practical_adjustments=实用微调
 # Items
 item.pestle.name=研杵
 item.mortar_and_pestle.name=研钵和研杵
+item.read_will_die_book.name=读了就会死的书
+
+# Item lore
+item.read_will_die_book.lore.1=一本封皮是红色的书，
+item.read_will_die_book.lore.2=只看封皮应该不会死（？）
 
 # Blocks
 tile.de_curse_table.name=祛咒台
@@ -13,3 +18,6 @@ tile.de_curse_table.lore=祛除物品上的诅咒但保留其他的附魔。
 
 # Contianer
 container.de_curse_table.title=祛咒台
+
+# Attack
+death.attack.read_will_die_book=%s 被书的膜法杀死了！

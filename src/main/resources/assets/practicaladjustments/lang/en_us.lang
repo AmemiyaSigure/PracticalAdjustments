@@ -4,6 +4,11 @@ itemGroup.practical_adjustments=Practical Adjustments
 # Items
 item.pestle.name=Pestle
 item.mortar_and_pestle.name=Mortar and Pestle
+item.read_will_die_book.name=Read the book that will die
+
+# Item lore
+item.read_will_die_book.lore.1=A book with red cover,
+item.read_will_die_book.lore.2=Just looking at the cover should not die.
 
 # Blocks
 tile.de_curse_table.name=De-curse Table
@@ -13,3 +18,6 @@ tile.de_curse_table.lore=Remove the curse from items but keep good enchants.
 
 # Contianer
 container.de_curse_table.title=De-curse Table
+
+# Attack
+death.attack.read_will_die_book=%s was killed by book.
