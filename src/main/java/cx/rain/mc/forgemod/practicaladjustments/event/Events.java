@@ -6,6 +6,7 @@ import net.minecraftforge.common.MinecraftForge;
 public class Events {
     public Events() {
         PracticalAdjustments.INSTANCE.getLogger().info("Registered events.");
-        MinecraftForge.EVENT_BUS.register(new EventEntityMount());
+        MinecraftForge.EVENT_BUS.register(new EventSaddlePick());
+        MinecraftForge.EVENT_BUS.register(new EventHurtAnimals());
     }
 }

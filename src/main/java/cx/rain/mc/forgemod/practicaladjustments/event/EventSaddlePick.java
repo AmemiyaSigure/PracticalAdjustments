@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.entity.EntityMountEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-public class EventEntityMount {
+public class EventSaddlePick {
     @SubscribeEvent
     public void onEntityMount(EntityMountEvent event) {
         if (event.getEntityMounting() instanceof EntityPlayer
