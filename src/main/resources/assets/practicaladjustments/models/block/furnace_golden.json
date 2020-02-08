@@ -1,0 +1,10 @@
+{
+  "parent": "block/orientable",
+  "textures": {
+	"particle": "practicaladjustments:blocks/furnace_golden_side",
+    "up": "practicaladjustments:blocks/furnace_golden_up",
+	"down": "practicaladjustments:blocks/furnace_golden_down", 
+    "front": "practicaladjustments:blocks/furnace_golden_front",
+    "side": "practicaladjustments:blocks/furnace_golden_side"
+  }
+}

@@ -2,6 +2,7 @@ package cx.rain.mc.forgemod.practicaladjustments.block;
 
 import cx.rain.mc.forgemod.practicaladjustments.PracticalAdjustments;
 import cx.rain.mc.forgemod.practicaladjustments.creative.tab.Tabs;
+import cx.rain.mc.forgemod.practicaladjustments.utility.enumerates.FurnaceType;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
@@ -21,6 +22,10 @@ public class Blocks {
 
     static {
         BLOCKS.put("de_curse_table", new BlockDeCurseTable());
+        BLOCKS.put("furnace_iron", new BlockFurnace(FurnaceType.Iron));
+        BLOCKS.put("furnace_golden", new BlockFurnace(FurnaceType.Golden));
+        BLOCKS.put("furnace_diamond", new BlockFurnace(FurnaceType.Diamond));
+        BLOCKS.put("furnace_super", new BlockFurnace(FurnaceType.SuperFurnace));
     }
 
     public Blocks(FMLPreInitializationEvent event) {

@@ -12,7 +12,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import java.util.List;
 
-public class EventHurtAnimals {
+public class EventLivingHurt {
     @SubscribeEvent
     public void onLivingHurt(LivingHurtEvent event) {
         if (!(event.getEntity() instanceof EntityAnimal)) {
@@ -32,7 +32,6 @@ public class EventHurtAnimals {
                 EntitySelectors.IS_ALIVE);
 
         for (EntityAnimal a : animals) {
-            System.out.println(a.getUniqueID());
             a.setRevengeTarget(source);
         }
     }

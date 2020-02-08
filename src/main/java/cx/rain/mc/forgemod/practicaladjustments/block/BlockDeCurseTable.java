@@ -29,6 +29,12 @@ public class BlockDeCurseTable extends Block {
     }
 
     @Override
+    public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, ITooltipFlag advanced) {
+        super.addInformation(stack, player, tooltip, advanced);
+        tooltip.add(I18n.format("tile.de_curse_table.lore"));
+    }
+
+    @Override
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn,
                                     EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         if (!worldIn.isRemote) {
@@ -37,11 +43,5 @@ public class BlockDeCurseTable extends Block {
                     pos.getX(), pos.getY(), pos.getZ());
         }
         return true;
-    }
-
-    @Override
-    public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, ITooltipFlag advanced) {
-        super.addInformation(stack, player, tooltip, advanced);
-        tooltip.add(I18n.format("tile.de_curse_table.lore"));
     }
 }

@@ -12,12 +12,20 @@ item.read_will_die_book.lore.2=Just looking at the cover should not die.
 
 # Blocks
 tile.de_curse_table.name=De-curse Table
+tile.furnace_iron.name=Iron Furnace
+tile.furnace_golden.name=Golden Furnace
+tile.furnace_diamond.name=Diamond Furnace
+tile.furnace_super.name=Super Furnace
 
 # Block lore
 tile.de_curse_table.lore=Remove the curse from items but keep good enchants.
 
 # Contianer
 container.de_curse_table.title=De-curse Table
+container.furnace_iron.title=Iron Furnace
+container.furnace_golden.title=Golden Furnace
+container.furnace_diamond.title=Diamond Furnace
+container.furnace_super.title=Super Furnace
 
 # Attack
 death.attack.read_will_die_book=%s was killed by book.

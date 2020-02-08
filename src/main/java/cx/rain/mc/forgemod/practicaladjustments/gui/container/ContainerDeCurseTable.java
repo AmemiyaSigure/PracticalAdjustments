@@ -86,16 +86,11 @@ public class ContainerDeCurseTable extends Container {
             }
         };
 
-        drawPlayerInventory(player.inventory);
-        drawContainerSlots();
+        addPlayerInventory(player.inventory);
+        addContainerSlots();
     }
 
-    @Override
-    public boolean canInteractWith(EntityPlayer playerIn) {
-        return playerIn.getDistanceSq(playerIn.getPosition().add(0.5D, 0.5D, 0.5D)) <= 64D;
-    }
-
-    private void drawPlayerInventory(IInventory inventory) {
+    private void addPlayerInventory(IInventory inventory) {
         for (int row = 0; row < 3; ++row) {
             for (int col = 0; col < 9; ++col) {
                 int x = col * 18 + 8;
@@ -111,10 +106,15 @@ public class ContainerDeCurseTable extends Container {
         }
     }
 
-    private void drawContainerSlots() {
+    private void addContainerSlots() {
         addSlotToContainer(slotCursed);
         addSlotToContainer(slotOblation);
         addSlotToContainer(slotOutput);
+    }
+
+    @Override
+    public boolean canInteractWith(EntityPlayer playerIn) {
+        return playerIn.getDistanceSq(playerIn.getPosition().add(0.5D, 0.5D, 0.5D)) <= 64D;
     }
 
     @Override

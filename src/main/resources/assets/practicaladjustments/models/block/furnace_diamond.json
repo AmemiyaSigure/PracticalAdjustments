@@ -1,0 +1,10 @@
+{
+  "parent": "block/orientable",
+  "textures": {
+	"particle": "practicaladjustments:blocks/furnace_diamond_side",
+    "up": "practicaladjustments:blocks/furnace_diamond_up",
+	"down": "practicaladjustments:blocks/furnace_diamond_down", 
+    "front": "practicaladjustments:blocks/furnace_diamond_front",
+    "side": "practicaladjustments:blocks/furnace_diamond_side"
+  }
+}

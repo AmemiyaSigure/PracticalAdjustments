@@ -12,12 +12,20 @@ item.read_will_die_book.lore.2=只看封皮应该不会死（？）
 
 # Blocks
 tile.de_curse_table.name=祛咒台
+tile.furnace_iron.name=铁质熔炉
+tile.furnace_golden.name=金质熔炉
+tile.furnace_diamond.name=钻石熔炉
+tile.furnace_super.name=超级熔炉
 
 # Block lore
 tile.de_curse_table.lore=祛除物品上的诅咒但保留其他的附魔。
 
 # Contianer
 container.de_curse_table.title=祛咒台
+container.furnace_iron.title=铁质熔炉
+container.furnace_golden.title=金质熔炉
+container.furnace_diamond.title=钻石熔炉
+container.furnace_super.title=超级熔炉
 
 # Attack
 death.attack.read_will_die_book=%s 被书的膜法杀死了！

@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "facing=north": { 
+	  "model": "practicaladjustments:furnace_super"
+	},
+    "facing=south": { 
+	  "model": "practicaladjustments:furnace_super", "y": 180
+	},
+    "facing=west": { 
+	  "model": "practicaladjustments:furnace_super", "y": 270
+	},
+    "facing=east": { 
+	  "model": "practicaladjustments:furnace_super", "y": 90
+	}
+  }
+}

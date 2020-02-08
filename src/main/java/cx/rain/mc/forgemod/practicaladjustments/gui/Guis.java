@@ -2,6 +2,7 @@ package cx.rain.mc.forgemod.practicaladjustments.gui;
 
 import cx.rain.mc.forgemod.practicaladjustments.PracticalAdjustments;
 import cx.rain.mc.forgemod.practicaladjustments.gui.container.ContainerDeCurseTable;
+import cx.rain.mc.forgemod.practicaladjustments.gui.container.ContainerFurnace;
 import cx.rain.mc.forgemod.practicaladjustments.utility.GuiTriple;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.BlockPos;
@@ -22,9 +23,13 @@ public class Guis implements IGuiHandler {
         if (FMLCommonHandler.instance().getSide() == Side.SERVER) {
             GUIS.put("de_curse_table",
                     new GuiTriple(ContainerDeCurseTable.class, null));
+            GUIS.put("furnace",
+                    new GuiTriple(ContainerFurnace.class, null));
         } else {
             GUIS.put("de_curse_table",
                     new GuiTriple(ContainerDeCurseTable.class, GuiDeCurseTable.class));
+            GUIS.put("furnace",
+                    new GuiTriple(ContainerFurnace.class, GuiFurnace.class));
         }
     }
 
