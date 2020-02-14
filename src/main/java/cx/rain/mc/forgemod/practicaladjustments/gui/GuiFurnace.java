@@ -36,7 +36,7 @@ public class GuiFurnace extends GuiContainer {
                             "textures/guis/furnace_one_slot.png");
                 } else {
                     texture = new ResourceLocation(PracticalAdjustments.MODID,
-                            "textures/guis/furnace_one_slot_expand.png");
+                            "textures/guis/furnace_one_slot_expend.png");
                 }
                 break;
             case 2:
@@ -45,7 +45,7 @@ public class GuiFurnace extends GuiContainer {
                             "textures/guis/furnace_two_slots.png");
                 } else {
                     texture = new ResourceLocation(PracticalAdjustments.MODID,
-                            "textures/guis/furnace_two_slots_expand.png");
+                            "textures/guis/furnace_two_slots_expend.png");
                 }
                 break;
             case 3:
@@ -54,7 +54,7 @@ public class GuiFurnace extends GuiContainer {
                             "textures/guis/furnace_three_slots.png");
                 } else {
                     texture = new ResourceLocation(PracticalAdjustments.MODID,
-                            "textures/guis/furnace_three_slots_expand.png");
+                            "textures/guis/furnace_three_slots_expend.png");
                 }
                 break;
         }

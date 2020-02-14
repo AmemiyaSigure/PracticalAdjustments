@@ -5,6 +5,7 @@ import cx.rain.mc.forgemod.practicaladjustments.creative.tab.Tabs;
 import cx.rain.mc.forgemod.practicaladjustments.event.Events;
 import cx.rain.mc.forgemod.practicaladjustments.gui.Guis;
 import cx.rain.mc.forgemod.practicaladjustments.item.Items;
+import cx.rain.mc.forgemod.practicaladjustments.tile.entity.TileEntities;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -33,6 +34,7 @@ public class PracticalAdjustments {
         new Tabs();
         new Items(event);
         new Blocks(event);
+        new TileEntities(event);
     }
 
     @EventHandler

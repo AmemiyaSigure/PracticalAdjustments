@@ -1,6 +1,10 @@
 package cx.rain.mc.forgemod.practicaladjustments.gui.container;
 
 import cx.rain.mc.forgemod.practicaladjustments.block.BlockFurnace;
+import cx.rain.mc.forgemod.practicaladjustments.gui.slot.SlotFuel;
+import cx.rain.mc.forgemod.practicaladjustments.gui.slot.SlotOutput;
+import cx.rain.mc.forgemod.practicaladjustments.gui.slot.SlotUpgrade;
+import cx.rain.mc.forgemod.practicaladjustments.tile.entity.TileEntityFurnace;
 import cx.rain.mc.forgemod.practicaladjustments.utility.enumerates.FurnaceType;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
@@ -8,13 +12,29 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
+import net.minecraftforge.items.ItemStackHandler;
+import net.minecraftforge.items.SlotItemHandler;
 
 public class ContainerFurnace extends Container {
     private BlockFurnace furnace = null;
+    private TileEntityFurnace tileFurnace = null;
     private FurnaceType furnaceType = null;
     private int upgradeSlots = 1;
     private boolean isExpended = false;
+    private IInventory playerInv = null;
+    private ItemStackHandler items = new ItemStackHandler(6);
+    private Slot slotInput = null;
+    private Slot slotInputExpend = null;
+    private Slot slotFuel = null;
+    private Slot slotFuelExpend = null;
+    private Slot slotOutput = null;
+    private Slot slotOutputExpend = null;
+    private ItemStackHandler upgrades = new ItemStackHandler(3);
+    private Slot slotUpgrade1 = null;
+    private Slot slotUpgrade2 = null;
+    private Slot slotUpgrade3 = null;
 
     public ContainerFurnace(EntityPlayer player, BlockPos pos) {
         super();
@@ -23,12 +43,52 @@ public class ContainerFurnace extends Container {
         if (!(block instanceof BlockFurnace)) {
             throw new IllegalArgumentException("Hey, Potato! It must be a instance of BlockFurnace.");
         }
+
+        TileEntity tile = Minecraft.getMinecraft().world.getTileEntity(pos);
+        if (!(tile instanceof TileEntityFurnace)) {
+            throw new IllegalArgumentException("Hey, Potato! It must be a instance of TileEntityFurnace.");
+        }
+
+        playerInv = player.inventory;
+
         furnace = (BlockFurnace) block;
+        tileFurnace = (TileEntityFurnace) tile;
+
         furnaceType = furnace.getFurnaceType();
         upgradeSlots = furnace.getUpgradeSlots();
+        isExpended = tileFurnace.isExpend();
 
-        addPlayerInventory(player.inventory);
+        addPlayerInventory(playerInv);
+        setSlots();
         addContainerSlots();
+    }
+
+    private void setSlots() {
+        if (!isExpended) {
+            slotInput = new SlotItemHandler(items, 0, 62, 17);
+            slotFuel = new SlotFuel(items, 2, 62, 53);
+            slotOutput = new SlotOutput(items, 4, 122, 35);
+        } else {
+            slotInput = new SlotItemHandler(items, 0, 53, 17);
+            slotInputExpend = new SlotItemHandler(items, 1, 71, 17);
+
+            slotFuel = new SlotFuel(items, 2, 53, 53);
+            slotFuelExpend = new SlotFuel(items, 3, 71, 53);
+
+            slotOutput = new SlotOutput(items, 4, 122, 22);
+            slotOutputExpend = new SlotOutput(items, 5, 122, 48);
+        }
+
+        if (upgradeSlots == 1) {
+            slotUpgrade1 = new SlotUpgrade(upgrades, 0, 8, 35);
+        } else if (upgradeSlots == 2) {
+            slotUpgrade1 = new SlotUpgrade(upgrades, 0, 8, 26);
+            slotUpgrade2 = new SlotUpgrade(upgrades, 1, 8, 44);
+        } else if (upgradeSlots == 3) {
+            slotUpgrade1 = new SlotUpgrade(upgrades, 0, 8, 17);
+            slotUpgrade2 = new SlotUpgrade(upgrades, 1, 8, 35);
+            slotUpgrade3 = new SlotUpgrade(upgrades, 2, 8, 53);
+        }
     }
 
     private void addPlayerInventory(IInventory inventory) {
@@ -48,7 +108,25 @@ public class ContainerFurnace extends Container {
     }
 
     private void addContainerSlots() {
+        addSlotToContainer(slotInput);
+        addSlotToContainer(slotFuel);
+        addSlotToContainer(slotOutput);
+        if (isExpended) {
+            addSlotToContainer(slotInputExpend);
+            addSlotToContainer(slotFuelExpend);
+            addSlotToContainer(slotOutputExpend);
+        }
 
+        if (upgradeSlots == 1) {
+            addSlotToContainer(slotUpgrade1);
+        } else if (upgradeSlots == 2) {
+            addSlotToContainer(slotUpgrade1);
+            addSlotToContainer(slotUpgrade2);
+        } else if (upgradeSlots == 3) {
+            addSlotToContainer(slotUpgrade1);
+            addSlotToContainer(slotUpgrade2);
+            addSlotToContainer(slotUpgrade3);
+        }
     }
 
     @Override
@@ -59,7 +137,6 @@ public class ContainerFurnace extends Container {
     @Override
     public void onContainerClosed(EntityPlayer playerIn) {
         super.onContainerClosed(playerIn);
-
     }
 
     public int getUpgradeSlots() {

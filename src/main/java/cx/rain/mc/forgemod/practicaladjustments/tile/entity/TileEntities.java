@@ -1,14 +1,16 @@
 package cx.rain.mc.forgemod.practicaladjustments.tile.entity;
 
 import cx.rain.mc.forgemod.practicaladjustments.PracticalAdjustments;
-import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class TileEntities {
-    public TileEntities() {
-        TileEntity.register(getId("furnace"), TileEntityFurnace.class);
+    public TileEntities(FMLPreInitializationEvent event) {
+        GameRegistry.registerTileEntity(TileEntityFurnace.class, getResourceLocation("furnace"));
     }
 
-    private String getId(String name) {
-        return PracticalAdjustments.MODID + ":" + name;
+    private ResourceLocation getResourceLocation(String name) {
+        return new ResourceLocation(PracticalAdjustments.MODID, name);
     }
 }
