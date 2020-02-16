@@ -20,7 +20,6 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.common.network.internal.FMLNetworkHandler;
 
 import javax.annotation.Nullable;
 import java.util.Arrays;
@@ -124,10 +123,11 @@ public class BlockFurnace extends BlockContainer implements ITileEntityProvider 
     }
 
     @Override
-    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn,
+                                    EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         if (!worldIn.isRemote) {
             List<String> guis = Arrays.asList(Guis.GUIS.keySet().toArray(new String[Guis.GUIS.keySet().size()]));
-            FMLNetworkHandler.openGui(playerIn, PracticalAdjustments.INSTANCE, guis.indexOf("furnace"), worldIn,
+            playerIn.openGui(PracticalAdjustments.INSTANCE, guis.indexOf("furnace"), worldIn,
                     pos.getX(), pos.getY(), pos.getZ());
         }
         return true;

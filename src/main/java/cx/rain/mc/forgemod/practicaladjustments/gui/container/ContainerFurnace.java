@@ -61,6 +61,8 @@ public class ContainerFurnace extends Container {
         addPlayerInventory(playerInv);
         setSlots();
         addContainerSlots();
+
+        System.out.println(isExpended);
     }
 
     private void setSlots() {
