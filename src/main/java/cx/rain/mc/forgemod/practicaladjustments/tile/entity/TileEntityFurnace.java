@@ -28,6 +28,10 @@ public class TileEntityFurnace extends TileEntity implements ITickable {
 
     }
 
+    public void setExpend(boolean expend) {
+        isExpend = expend;
+    }
+
     public boolean isExpend() {
         return isExpend;
     }

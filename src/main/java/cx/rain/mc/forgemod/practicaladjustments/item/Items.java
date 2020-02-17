@@ -1,5 +1,6 @@
 package cx.rain.mc.forgemod.practicaladjustments.item;
 
+import cx.rain.mc.forgemod.practicaladjustments.utility.enumerates.FurnaceUpgradeLevel;
 import cx.rain.mc.forgemod.practicaladjustments.PracticalAdjustments;
 import cx.rain.mc.forgemod.practicaladjustments.creative.tab.Tabs;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -19,6 +20,14 @@ public class Items {
         ITEMS.put("pestle", new ItemPestle());
         ITEMS.put("mortar_and_pestle", new ItemMortarAndPestle());
         ITEMS.put("read_will_die_book", new ItemReadWillDieBook());
+        ITEMS.put("furnace_upgrade_ore_primary", new ItemFurnaceUpgradeOre(FurnaceUpgradeLevel.Primary));
+        ITEMS.put("furnace_upgrade_ore_advanced", new ItemFurnaceUpgradeOre(FurnaceUpgradeLevel.Advanced));
+        ITEMS.put("furnace_upgrade_ore_super", new ItemFurnaceUpgradeOre(FurnaceUpgradeLevel.Super));
+        ITEMS.put("furnace_upgrade_fuel_primary", new ItemFurnaceUpgradeFuel(FurnaceUpgradeLevel.Primary));
+        ITEMS.put("furnace_upgrade_fuel_advanced", new ItemFurnaceUpgradeFuel(FurnaceUpgradeLevel.Advanced));
+        ITEMS.put("furnace_upgrade_fuel_super", new ItemFurnaceUpgradeFuel(FurnaceUpgradeLevel.Super));
+        ITEMS.put("furnace_upgrade_speed", new ItemFurnaceUpgrade());
+        ITEMS.put("furnace_upgrade_expend", new ItemFurnaceUpgradeExpend());
     }
 
     public Items(FMLPreInitializationEvent event) {

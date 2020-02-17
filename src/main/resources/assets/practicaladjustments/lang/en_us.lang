@@ -5,6 +5,14 @@ itemGroup.practical_adjustments=Practical Adjustments
 item.pestle.name=Pestle
 item.mortar_and_pestle.name=Mortar and Pestle
 item.read_will_die_book.name=Read the book that will die
+item.furnace_upgrade_ore_primary.name=Primary Ore Factory Upgrade
+item.furnace_upgrade_ore_advanced.name=Advanced Ore Factory Upgrade
+item.furnace_upgrade_ore_super.name=Super Ore Factory Upgrade
+item.furnace_upgrade_fuel_primary.name=Primary Fuel Upgrade
+item.furnace_upgrade_fuel_advanced.name=Advanced Fuel Upgrade
+item.furnace_upgrade_fuel_super.name=Super Fuel Upgrade
+item.furnace_upgrade_speed.name=Speed Upgrade
+item.furnace_upgrade_expend.name=Store Upgrade
 
 # Item lore
 item.read_will_die_book.lore.1=A book with red cover,

@@ -1,6 +1,6 @@
 package cx.rain.mc.forgemod.practicaladjustments.gui.slot;
 
-import cx.rain.mc.forgemod.practicaladjustments.item.ItemUpgrade;
+import cx.rain.mc.forgemod.practicaladjustments.item.ItemFurnaceUpgrade;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
@@ -14,6 +14,6 @@ public class SlotUpgrade extends SlotItemHandler {
 
     @Override
     public boolean isItemValid(@Nonnull ItemStack stack) {
-        return stack.getItem() instanceof ItemUpgrade;
+        return stack.getItem() instanceof ItemFurnaceUpgrade;
     }
 }

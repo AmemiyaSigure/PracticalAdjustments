@@ -5,6 +5,14 @@ itemGroup.practical_adjustments=实用微调
 item.pestle.name=研杵
 item.mortar_and_pestle.name=研钵和研杵
 item.read_will_die_book.name=读了就会死的书
+item.furnace_upgrade_ore_primary.name=基础矿石加工升级
+item.furnace_upgrade_ore_advanced.name=高级矿石加工升级
+item.furnace_upgrade_ore_super.name=超级矿石加工升级
+item.furnace_upgrade_fuel_primary.name=基础燃料效率升级
+item.furnace_upgrade_fuel_advanced.name=高级燃料效率升级
+item.furnace_upgrade_fuel_super.name=超级燃料效率升级
+item.furnace_upgrade_speed.name=速度升级
+item.furnace_upgrade_expend.name=存储升级
 
 # Item lore
 item.read_will_die_book.lore.1=一本封皮是红色的书，

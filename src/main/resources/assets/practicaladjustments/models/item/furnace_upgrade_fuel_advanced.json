@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "practicaladjustments:items/furnace_upgrade_fuel_advanced"
+  }
+}
