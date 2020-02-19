@@ -22,21 +22,18 @@ public class ItemFurnaceUpgradeExpend extends Item {
 
     @Override
     public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-        TileEntity tile =  worldIn.getTileEntity(pos);
+        TileEntity tile = worldIn.getTileEntity(pos);
         if (tile instanceof TileEntityFurnace) {
             TileEntityFurnace furnace = (TileEntityFurnace) tile;
             if (!furnace.isExpend()) {
                 furnace.setExpend(true);
+                furnace.markDirty();
+                player.setHeldItem(hand, ItemStack.EMPTY);
                 return EnumActionResult.SUCCESS;
             } else {
                 return EnumActionResult.FAIL;
             }
         }
         return EnumActionResult.PASS;
-    }
-
-    @Override
-    public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityLivingBase entityLiving) {
-        return ItemStack.EMPTY;
     }
 }

@@ -95,7 +95,7 @@ public class ContainerDeCurseTable extends Container {
             for (int col = 0; col < 9; ++col) {
                 int x = col * 18 + 8;
                 int y = row * 18 + 90;
-                addSlotToContainer(new Slot(inventory, col + row * 9 + 10, x, y));
+                addSlotToContainer(new Slot(inventory, col + row * 9 + 9, x, y));
             }
         }
 
@@ -130,9 +130,6 @@ public class ContainerDeCurseTable extends Container {
             EntityItem entityItem = new EntityItem(world, playerIn.posX, playerIn.posY, playerIn.posZ, i);
             world.spawnEntity(entityItem);
             i = slotOblation.getStack();
-            entityItem = new EntityItem(world, playerIn.posX, playerIn.posY, playerIn.posZ, i);
-            world.spawnEntity(entityItem);
-            i = slotOutput.getStack();
             entityItem = new EntityItem(world, playerIn.posX, playerIn.posY, playerIn.posZ, i);
             world.spawnEntity(entityItem);
         }
