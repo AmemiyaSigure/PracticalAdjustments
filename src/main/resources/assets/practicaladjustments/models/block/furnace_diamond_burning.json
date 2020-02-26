@@ -4,7 +4,7 @@
 	"particle": "practicaladjustments:blocks/furnace_diamond_front",
     "up": "practicaladjustments:blocks/furnace_diamond_up",
 	"down": "practicaladjustments:blocks/furnace_diamond_down", 
-    "front": "practicaladjustments:blocks/furnace_diamond_front",
+    "front": "practicaladjustments:blocks/furnace_diamond_front_active",
     "side": "practicaladjustments:blocks/furnace_diamond_side"
   }
 }

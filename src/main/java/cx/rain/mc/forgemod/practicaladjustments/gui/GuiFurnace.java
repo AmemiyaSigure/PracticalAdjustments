@@ -86,22 +86,21 @@ public class GuiFurnace extends GuiContainer {
     }
 
     private void drawTitle() {
-        String title = null;
-        switch (furnaceType) {
-            case Iron:
-                title = I18n.format("container.furnace_iron.title");
-                break;
-            case Golden:
-                title = I18n.format("container.furnace_golden.title");
-                break;
-            case Diamond:
-                title = I18n.format("container.furnace_diamond.title");
-                break;
-            case SuperFurnace:
-                title = I18n.format("container.furnace_super.title");
-                break;
-        }
-
+        String title = I18n.format(getDefaultTitleKey(furnaceType));
         fontRenderer.drawString(title, (xSize - fontRenderer.getStringWidth(title)) / 2, 6, 0x404040);
+    }
+
+    public static String getDefaultTitleKey(FurnaceType type) {
+        switch (type) {
+            case Iron:
+                return "container.furnace_iron.title";
+            case Golden:
+                return "container.furnace_golden.title";
+            case Diamond:
+                return "container.furnace_diamond.title";
+            case SuperFurnace:
+            default:
+                return "container.furnace_super.title";
+        }
     }
 }

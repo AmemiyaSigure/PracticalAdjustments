@@ -46,7 +46,9 @@ public class Blocks {
     }
 
     private void register(Block block, String name) {
-        ForgeRegistries.BLOCKS.register(block.setRegistryName(name).setUnlocalizedName(name).setCreativeTab(Tabs.PRACTICAL_ADJUSTMENTS));
+        ForgeRegistries.BLOCKS.register(block.setRegistryName(PracticalAdjustments.MODID, name)
+                .setUnlocalizedName(name)
+                .setCreativeTab(Tabs.PRACTICAL_ADJUSTMENTS));
         ForgeRegistries.ITEMS.register(new ItemBlock(block).setRegistryName(name));
     }
 

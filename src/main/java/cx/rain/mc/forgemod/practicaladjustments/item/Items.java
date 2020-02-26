@@ -48,7 +48,8 @@ public class Items {
     }
 
     private void register(Item item, String name) {
-        item.setRegistryName(name).setUnlocalizedName(name).setCreativeTab(Tabs.PRACTICAL_ADJUSTMENTS);
+        item.setRegistryName(PracticalAdjustments.MODID, name).setUnlocalizedName(name)
+                .setCreativeTab(Tabs.PRACTICAL_ADJUSTMENTS);
         ForgeRegistries.ITEMS.register(item);
     }
 

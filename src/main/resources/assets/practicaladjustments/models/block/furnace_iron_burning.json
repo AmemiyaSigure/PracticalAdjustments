@@ -4,7 +4,7 @@
 	"particle": "practicaladjustments:blocks/furnace_iron_front",
     "up": "practicaladjustments:blocks/furnace_iron_up",
 	"down": "practicaladjustments:blocks/furnace_iron_down", 
-    "front": "practicaladjustments:blocks/furnace_iron_front",
+    "front": "practicaladjustments:blocks/furnace_iron_front_active",
     "side": "practicaladjustments:blocks/furnace_iron_side"
   }
 }

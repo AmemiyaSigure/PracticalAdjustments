@@ -4,7 +4,7 @@
 	"particle": "practicaladjustments:blocks/furnace_super_front",
     "up": "practicaladjustments:blocks/furnace_super_up",
 	"down": "practicaladjustments:blocks/furnace_super_down", 
-    "front": "practicaladjustments:blocks/furnace_super_front",
+    "front": "practicaladjustments:blocks/furnace_super_front_active",
     "side": "practicaladjustments:blocks/furnace_super_side"
   }
 }

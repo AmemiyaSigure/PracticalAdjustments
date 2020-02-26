@@ -4,7 +4,7 @@
 	"particle": "practicaladjustments:blocks/furnace_golden_front",
     "up": "practicaladjustments:blocks/furnace_golden_up",
 	"down": "practicaladjustments:blocks/furnace_golden_down", 
-    "front": "practicaladjustments:blocks/furnace_golden_front",
+    "front": "practicaladjustments:blocks/furnace_golden_front_active",
     "side": "practicaladjustments:blocks/furnace_golden_side"
   }
 }
