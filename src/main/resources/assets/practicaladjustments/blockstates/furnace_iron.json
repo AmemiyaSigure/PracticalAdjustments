@@ -1,27 +1,27 @@
 {
 	"variants": {
-		"facing=north, burning=false": {
+		"burning=false,facing=north": {
 			"model": "practicaladjustments:furnace_iron"
 		},
-		"facing=south, burning=false": {
+		"burning=false,facing=south": {
 			"model": "practicaladjustments:furnace_iron", "y": 180
 		},
-		"facing=west, burning=false": {
+		"burning=false,facing=west": {
 			"model": "practicaladjustments:furnace_iron", "y": 270
 		},
-		"facing=east, burning=false": {
+		"burning=false,facing=east": {
 			"model": "practicaladjustments:furnace_iron", "y": 90
 		},
-		"facing=north, burning=true": {
+		"burning=true,facing=north": {
 			"model": "practicaladjustments:furnace_iron_burning"
 		},
-		"facing=south, burning=true": {
+		"burning=true,facing=south": {
 			"model": "practicaladjustments:furnace_iron_burning", "y": 180
 		},
-		"facing=west, burning=true": {
+		"burning=true,facing=west": {
 			"model": "practicaladjustments:furnace_iron_burning", "y": 270
 		},
-		"facing=east, burning=true": {
+		"burning=true,facing=east": {
 			"model": "practicaladjustments:furnace_iron_burning", "y": 90
 		}
 	}

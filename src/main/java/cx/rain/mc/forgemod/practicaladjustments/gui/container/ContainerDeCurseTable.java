@@ -3,6 +3,7 @@ package cx.rain.mc.forgemod.practicaladjustments.gui.container;
 import cx.rain.mc.forgemod.practicaladjustments.gui.slot.SlotCursedOnly;
 import cx.rain.mc.forgemod.practicaladjustments.gui.slot.SlotOblation;
 import cx.rain.mc.forgemod.practicaladjustments.gui.slot.SlotOutput;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
@@ -36,10 +37,11 @@ public class ContainerDeCurseTable extends Container {
 
                     ItemStack output = getItemHandler().getStackInSlot(0).copy();
                     Iterator<NBTBase> i = output.getEnchantmentTagList().iterator();
+
                     while (i.hasNext()) {
                         NBTTagCompound enchant = (NBTTagCompound) i.next();
-                        if (enchant.getShort("id") == 10
-                                || enchant.getShort("id") == 71) {
+                        Enchantment ench = Enchantment.getEnchantmentByID(enchant.getShort("id"));
+                        if (ench != null && ench.isCurse()) {
                             i.remove();
                         }
                     }

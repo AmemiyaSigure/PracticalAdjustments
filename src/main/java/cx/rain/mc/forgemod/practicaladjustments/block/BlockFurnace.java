@@ -2,7 +2,9 @@ package cx.rain.mc.forgemod.practicaladjustments.block;
 
 import cx.rain.mc.forgemod.practicaladjustments.PracticalAdjustments;
 import cx.rain.mc.forgemod.practicaladjustments.gui.Guis;
+import cx.rain.mc.forgemod.practicaladjustments.item.Items;
 import cx.rain.mc.forgemod.practicaladjustments.tile.entity.TileEntityFurnace;
+import cx.rain.mc.forgemod.practicaladjustments.utility.ContainerHelper;
 import cx.rain.mc.forgemod.practicaladjustments.utility.enumerates.FurnaceType;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.BlockHorizontal;
@@ -123,7 +125,14 @@ public class BlockFurnace extends BlockContainer {
     @Override
     public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
         TileEntityFurnace furnace = (TileEntityFurnace) worldIn.getTileEntity(pos);
-        InventoryHelper.dropInventoryItems(worldIn, pos, furnace);
+        if (furnace != null) {
+            ContainerHelper.dropInventoryItems(worldIn, pos, furnace);
+            if (furnace.isExpend()) {
+                ContainerHelper.spawnItemStack(worldIn, pos.getX(), pos.getY(), pos.getZ(),
+                        new ItemStack(Items.ITEMS.get("furnace_upgrade_expend")));
+            }
+        }
+
         super.breakBlock(worldIn, pos, state);
     }
 

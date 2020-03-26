@@ -1,8 +1,8 @@
 package cx.rain.mc.forgemod.practicaladjustments.utility;
 
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.NonNullList;
+import net.minecraftforge.items.IItemHandler;
 
 public interface IContainer {
-    NonNullList<ItemStack> getInventory();
+    IItemHandler getInventory();
+    int getMaxStackSize();
 }

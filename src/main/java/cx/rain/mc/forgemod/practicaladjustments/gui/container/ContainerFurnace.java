@@ -9,58 +9,50 @@ import cx.rain.mc.forgemod.practicaladjustments.utility.enumerates.FurnaceType;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
+import net.minecraft.inventory.IContainerListener;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
-import net.minecraftforge.items.ItemStackHandler;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 
 public class ContainerFurnace extends Container {
     private BlockFurnace furnace = null;
     private TileEntityFurnace tileFurnace = null;
-    private FurnaceType furnaceType = null;
     private int upgradeSlots = 1;
     private boolean isExpended = false;
-    private IInventory playerInv = null;
+    private EntityPlayer player = null;
 
-    private ItemStackHandler items = new ItemStackHandler(6);
-    private Slot slotInput = null;
-    private Slot slotInputExpend = null;
-    private Slot slotFuel = null;
-    private Slot slotFuelExpend = null;
-    private Slot slotOutput = null;
-    private Slot slotOutputExpend = null;
+    private int cookTime = 0;
+    private int totalCookTime = 0;
+    private int burnTime = 0;
+    private int currentBurnTime = 0;
 
-    private ItemStackHandler upgrades = new ItemStackHandler(3);
-    private Slot slotUpgrade1 = null;
-    private Slot slotUpgrade2 = null;
-    private Slot slotUpgrade3 = null;
-
-    public ContainerFurnace(EntityPlayer player, BlockPos pos) {
+    public ContainerFurnace(EntityPlayer playerIn, BlockPos pos) {
         super();
 
-        Block block = player.world.getBlockState(pos).getBlock();
+        Block block = playerIn.world.getBlockState(pos).getBlock();
         if (!(block instanceof BlockFurnace)) {
             throw new IllegalArgumentException("Hey, Potato! It must be a instance of BlockFurnace.");
         }
 
-        TileEntity tile = player.world.getTileEntity(pos);
+        TileEntity tile = playerIn.world.getTileEntity(pos);
         if (!(tile instanceof TileEntityFurnace)) {
             throw new IllegalArgumentException("Hey, Potato! It must be a instance of TileEntityFurnace.");
         }
 
-        playerInv = player.inventory;
+        player = playerIn;
 
         furnace = (BlockFurnace) block;
         tileFurnace = (TileEntityFurnace) tile;
 
-        furnaceType = furnace.getFurnaceType();
         upgradeSlots = furnace.getUpgradeSlots();
         isExpended = tileFurnace.isExpend();
 
-        addPlayerInventory(playerInv);
-        setSlots(isExpended, upgradeSlots);
+        addPlayerInventory(player.inventory);
         addContainerSlots(isExpended, upgradeSlots);
     }
 
@@ -80,59 +72,77 @@ public class ContainerFurnace extends Container {
         }
     }
 
-    private void setSlots(boolean expend, int upgradeSlotsCount) {
+    private void addContainerSlots(boolean expend, int upgradeSlotsCount) {
+        IItemHandler items = tileFurnace.getInventory();
+
         if (!expend) {
-            slotInput = new SlotItemHandler(items, 0, 62, 17);
-            slotFuel = new SlotFuel(items, 2, 62, 53);
-            slotOutput = new SlotOutput(items, 4, 122, 35);
+            addSlotToContainer(new SlotItemHandler(items, 0, 62, 17));
+            addSlotToContainer(new SlotFuel(items, 2, 62, 53));
+            addSlotToContainer(new SlotOutput(items, 4, 122, 35));
         } else {
-            slotInput = new SlotItemHandler(items, 0, 53, 17);
-            slotInputExpend = new SlotItemHandler(items, 1, 71, 17);
-
-            slotFuel = new SlotFuel(items, 2, 53, 53);
-            slotFuelExpend = new SlotFuel(items, 3, 71, 53);
-
-            slotOutput = new SlotOutput(items, 4, 122, 22);
-            slotOutputExpend = new SlotOutput(items, 5, 122, 48);
+            addSlotToContainer(new SlotItemHandler(items, 0, 53, 17));
+            addSlotToContainer(new SlotItemHandler(items, 1, 71, 17));
+            addSlotToContainer(new SlotFuel(items, 2, 53, 53));
+            addSlotToContainer(new SlotFuel(items, 3, 71, 53));
+            addSlotToContainer(new SlotOutput(items, 4, 122, 22));
+            addSlotToContainer(new SlotOutput(items, 5, 122, 48));
         }
 
         if (upgradeSlotsCount == 1) {
-            slotUpgrade1 = new SlotUpgrade(upgrades, 0, 8, 35);
+            addSlotToContainer(new SlotUpgrade(items, 6, 8, 35));
         } else if (upgradeSlotsCount == 2) {
-            slotUpgrade1 = new SlotUpgrade(upgrades, 0, 8, 26);
-            slotUpgrade2 = new SlotUpgrade(upgrades, 1, 8, 44);
+            addSlotToContainer(new SlotUpgrade(items, 6, 8, 26));
+            addSlotToContainer(new SlotUpgrade(items, 7, 8, 44));
         } else if (upgradeSlotsCount == 3) {
-            slotUpgrade1 = new SlotUpgrade(upgrades, 0, 8, 17);
-            slotUpgrade2 = new SlotUpgrade(upgrades, 1, 8, 35);
-            slotUpgrade3 = new SlotUpgrade(upgrades, 2, 8, 53);
+            addSlotToContainer(new SlotUpgrade(items, 6, 8, 17));
+            addSlotToContainer(new SlotUpgrade(items, 7, 8, 35));
+            addSlotToContainer(new SlotUpgrade(items, 8, 8, 53));
         }
     }
 
-    private void addContainerSlots(boolean expend, int upgradeSlotsCount) {
-        addSlotToContainer(slotInput);
-        addSlotToContainer(slotFuel);
-        addSlotToContainer(slotOutput);
-        if (expend) {
-            addSlotToContainer(slotInputExpend);
-            addSlotToContainer(slotFuelExpend);
-            addSlotToContainer(slotOutputExpend);
+    @Override
+    public void addListener(IContainerListener listener) {
+        super.addListener(listener);
+        listener.sendWindowProperty(this, cookTime, tileFurnace.getCookTime());
+        listener.sendWindowProperty(this, totalCookTime, tileFurnace.getTotalCookTime());
+        listener.sendWindowProperty(this, burnTime, tileFurnace.getBurnTime());
+        listener.sendWindowProperty(this, currentBurnTime, tileFurnace.getCurrentBurnTime());
+    }
+
+    @Override
+    public void detectAndSendChanges() {
+        super.detectAndSendChanges();
+
+        for (IContainerListener listener : listeners) {
+            if (cookTime != tileFurnace.getCookTime()) {
+                listener.sendWindowProperty(this, cookTime, tileFurnace.getCookTime());
+            }
+            if (totalCookTime != tileFurnace.getTotalCookTime()) {
+                listener.sendWindowProperty(this, totalCookTime, tileFurnace.getTotalCookTime());
+            }
+            if (burnTime != tileFurnace.getCookTime()) {
+                listener.sendWindowProperty(this, burnTime, tileFurnace.getBurnTime());
+            }
+            if (currentBurnTime != tileFurnace.getCookTime()) {
+                listener.sendWindowProperty(this, currentBurnTime, tileFurnace.getCurrentBurnTime());
+            }
         }
 
-        if (upgradeSlotsCount == 1) {
-            addSlotToContainer(slotUpgrade1);
-        } else if (upgradeSlotsCount == 2) {
-            addSlotToContainer(slotUpgrade1);
-            addSlotToContainer(slotUpgrade2);
-        } else if (upgradeSlotsCount == 3) {
-            addSlotToContainer(slotUpgrade1);
-            addSlotToContainer(slotUpgrade2);
-            addSlotToContainer(slotUpgrade3);
-        }
+        cookTime = tileFurnace.getCookTime();
+        totalCookTime = tileFurnace.getTotalCookTime();
+        burnTime = tileFurnace.getBurnTime();
+        currentBurnTime = tileFurnace.getCurrentBurnTime();
     }
 
     @Override
     public boolean canInteractWith(EntityPlayer playerIn) {
         return playerIn.getDistanceSq(playerIn.getPosition().add(0.5D, 0.5D, 0.5D)) <= 64D;
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void updateProgressBar(int id, int data) {
+        // Todo
     }
 
     @Override
@@ -149,6 +159,22 @@ public class ContainerFurnace extends Container {
     }
 
     public FurnaceType getFurnaceType() {
-        return furnaceType;
+        return furnace.getFurnaceType();
+    }
+
+    public String getName() {
+        return tileFurnace.getName();
+    }
+
+    public boolean hasCustomName() {
+        return tileFurnace.hasCustomName();
+    }
+
+    public EntityPlayer getPlayer() {
+        return player;
+    }
+
+    public TileEntityFurnace getTile() {
+        return tileFurnace;
     }
 }
