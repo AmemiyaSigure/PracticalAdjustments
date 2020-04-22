@@ -109,6 +109,7 @@ jar {
         attributes(
                 "FMLCorePlugin": "cx.rain.mc.forgemod.practicaladjustments.coremod.PracticalAdjustmentsPlugin",
                 "FMLCorePluginContainsFMLMod": true,
+                "ForceLoadAsMod": true,
                 "TweakClass": "org.spongepowered.asm.launch.MixinTweaker",
                 "TweakOrder": 0,
                 "MixinConfigs": "mixins.practicaladjustments.json"
