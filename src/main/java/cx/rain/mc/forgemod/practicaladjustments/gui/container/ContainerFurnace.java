@@ -5,7 +5,7 @@ import cx.rain.mc.forgemod.practicaladjustments.gui.slot.SlotFuel;
 import cx.rain.mc.forgemod.practicaladjustments.gui.slot.SlotOutput;
 import cx.rain.mc.forgemod.practicaladjustments.gui.slot.SlotUpgrade;
 import cx.rain.mc.forgemod.practicaladjustments.tile.entity.TileEntityFurnace;
-import cx.rain.mc.forgemod.practicaladjustments.utility.enumerates.FurnaceType;
+import cx.rain.mc.forgemod.practicaladjustments.api.enumerates.FurnaceType;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;

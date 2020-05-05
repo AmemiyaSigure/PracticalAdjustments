@@ -1,4 +1,4 @@
-package cx.rain.mc.forgemod.practicaladjustments.utility;
+package cx.rain.mc.forgemod.practicaladjustments.api.interfaces;
 
 import net.minecraftforge.items.IItemHandler;
 

@@ -1,4 +1,4 @@
-package cx.rain.mc.forgemod.practicaladjustments.utility;
+package cx.rain.mc.forgemod.practicaladjustments.api.base;
 
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.nbt.NBTTagCompound;

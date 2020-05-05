@@ -1,5 +1,6 @@
 package cx.rain.mc.forgemod.practicaladjustments.gui.slot;
 
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
@@ -21,8 +22,8 @@ public class SlotCursedOnly extends SlotItemHandler {
 
         for (NBTBase enchant : stack.getEnchantmentTagList()){
             NBTTagCompound nbt = (NBTTagCompound) enchant;
-            if (nbt.getShort("id") == 10
-                    || nbt.getShort("id") == 71) {
+            Enchantment ench = Enchantment.getEnchantmentByID(nbt.getShort("id"));
+            if (ench != null && ench.isCurse()) {
                 return true;
             }
         }

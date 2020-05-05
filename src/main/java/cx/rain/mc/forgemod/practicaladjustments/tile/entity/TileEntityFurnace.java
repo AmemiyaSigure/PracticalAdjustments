@@ -2,7 +2,7 @@ package cx.rain.mc.forgemod.practicaladjustments.tile.entity;
 
 import cx.rain.mc.forgemod.practicaladjustments.block.BlockFurnace;
 import cx.rain.mc.forgemod.practicaladjustments.gui.GuiFurnace;
-import cx.rain.mc.forgemod.practicaladjustments.utility.IContainer;
+import cx.rain.mc.forgemod.practicaladjustments.api.interfaces.IContainer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;

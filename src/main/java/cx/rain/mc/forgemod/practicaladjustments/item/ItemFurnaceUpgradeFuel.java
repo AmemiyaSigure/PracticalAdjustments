@@ -1,6 +1,6 @@
 package cx.rain.mc.forgemod.practicaladjustments.item;
 
-import cx.rain.mc.forgemod.practicaladjustments.utility.enumerates.FurnaceUpgradeLevel;
+import cx.rain.mc.forgemod.practicaladjustments.api.enumerates.FurnaceUpgradeLevel;
 
 public class ItemFurnaceUpgradeFuel extends ItemFurnaceUpgrade {
     private FurnaceUpgradeLevel level = FurnaceUpgradeLevel.Primary;

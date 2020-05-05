@@ -30,7 +30,7 @@ public class PracticalAdjustments {
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-        logger.info("Hello World! Here is PreInitialization.");
+        logger.info("Hi there! Here is PreInitialization.");
         new Tabs();
         new Items(event);
         new Blocks(event);

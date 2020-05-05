@@ -3,7 +3,7 @@ package cx.rain.mc.forgemod.practicaladjustments.gui;
 import cx.rain.mc.forgemod.practicaladjustments.PracticalAdjustments;
 import cx.rain.mc.forgemod.practicaladjustments.gui.container.ContainerFurnace;
 import cx.rain.mc.forgemod.practicaladjustments.tile.entity.TileEntityFurnace;
-import cx.rain.mc.forgemod.practicaladjustments.utility.enumerates.FurnaceType;
+import cx.rain.mc.forgemod.practicaladjustments.api.enumerates.FurnaceType;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.resources.I18n;

@@ -1,4 +1,4 @@
-package cx.rain.mc.forgemod.practicaladjustments.utility.enumerates;
+package cx.rain.mc.forgemod.practicaladjustments.api.enumerates;
 
 public enum FurnaceType {
     Iron("iron"),

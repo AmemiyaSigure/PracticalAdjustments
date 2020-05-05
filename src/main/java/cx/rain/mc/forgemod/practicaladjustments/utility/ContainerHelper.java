@@ -1,5 +1,6 @@
 package cx.rain.mc.forgemod.practicaladjustments.utility;
 
+import cx.rain.mc.forgemod.practicaladjustments.api.interfaces.IContainer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.ItemStack;
